@@ -24,6 +24,20 @@ JavaScript side.
 - 👀 Tailored index & detail rendering: count badge with tooltip, chips overflow, or truncated list
 - 🧪 100% PHP coverage, 100% JS coverage, mutation tested, PHPStan level 8
 
+## Screenshots
+
+**Create / edit form** — structured rows and chips modes together, with inline add controls and drag handles:
+
+![Create form](art/form.png)
+
+**Detail view** — readonly chips and an ordered list, in Nova's native field layout:
+
+![Detail view](art/detail.png)
+
+**Index view** — count badge (with a hover tooltip), chips overflow and truncated list across the table:
+
+![Index view](art/index.png)
+
 ## Requirements
 
 - PHP `^8.4`

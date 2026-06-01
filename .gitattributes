@@ -2,6 +2,7 @@
 
 # Files & directories excluded from the distributed Composer package.
 /.github            export-ignore
+/art                export-ignore
 /docs               export-ignore
 /tests              export-ignore
 /workbench          export-ignore
