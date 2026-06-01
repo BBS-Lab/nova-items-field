@@ -51,6 +51,17 @@ describe('parseItemErrors', () => {
     it('ignores JSON payloads that are not objects', () => {
         expect(parseItemErrors(['42'])).toEqual({ field: ['42'], items: {} })
     })
+
+    it('handles payloads carrying only item errors or only field errors', () => {
+        expect(parseItemErrors([JSON.stringify({ items: { 0: ['x'] } })])).toEqual({
+            field: [],
+            items: { 0: ['x'] },
+        })
+        expect(parseItemErrors([JSON.stringify({ field: ['y'] })])).toEqual({
+            field: ['y'],
+            items: {},
+        })
+    })
 })
 
 describe('truncateList', () => {

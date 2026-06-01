@@ -150,8 +150,10 @@ describe('FormField', () => {
         const wrapper = mountField({ value: ['a', 'b', 'c'], draggable: true })
 
         await wrapper.findAll('.nif-handle')[0].trigger('keydown.down')
-
         expect(wrapper.vm.items).toEqual(['b', 'a', 'c'])
+
+        await wrapper.findAll('.nif-handle')[2].trigger('keydown.up')
+        expect(wrapper.vm.items).toEqual(['b', 'c', 'a'])
     })
 
     it('emits a field value change when an item is added', async () => {
