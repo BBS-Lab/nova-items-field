@@ -22,7 +22,7 @@
         "happy-dom": "^16.7.2",
         "prettier": "^3.4.2",
         "vite": "^6.0.7",
-        "vitest": "^3.0.5",
+        "vitest": "^4.1.8",
         "vue": "^3.5.13"
     },
     "dependencies": {
