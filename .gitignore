@@ -1,0 +1,13 @@
+/build
+/vendor
+/node_modules
+.superpowers/
+.DS_Store
+composer.phar
+composer.lock
+phpunit.xml
+mix-manifest.json
+auth.json
+.idea/
+/coverage
+.nyc_output

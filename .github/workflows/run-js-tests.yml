@@ -1,0 +1,39 @@
+name: js-tests
+
+on:
+  push:
+    branches: [main]
+    paths: ['resources/js/**', 'package.json', 'package-lock.json', 'vite.config.js', 'vitest.config.js']
+  pull_request:
+    branches: [main]
+    paths: ['resources/js/**', 'package.json', 'package-lock.json', 'vite.config.js', 'vitest.config.js']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  vitest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run JS tests with coverage
+        run: npm run test:coverage
+
+      - name: Verify committed assets are up to date
+        run: |
+          npm run build
+          git diff --exit-code dist
+
